@@ -7,32 +7,29 @@
           <% @post_images.each do |post_image| %>
           <div class="masonry-block">
             <div class="block block-image v1">
-
               <div class="block-image">
                 <div class="view view-first">
-                  <!-- <a href="">
-                      <%= image_tag('sample-post1.jpg') %> -->
-                      <%= attachment_image_tag post_image, :image %>
+                  <%= attachment_image_tag post_image, :image %>
                 </div>
               </div>
-
               <div class="block-content">
                 <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb") %>
                 <h3 class="block-title">
                   <%= link_to post_image_path(post_image.id) do %>
-                  <i class="fa fa-map-marker"></i><%= post_image.shop_name %>
-                     <%= attachment_image_tag post_image, :image %>
+                  <%= attachment_image_tag post_image, :image %>
                   <% end %>
                 </h3>
-                <p><%= post_image.caption %></p>
+                <%= paginate @post_images,  class: "paginate" %>
+                <!-- コメント件数　ここから -->
                 <ul class="inline-meta">
                   <li>By
                     <%= post_image.user.name %>
                   </li>
                   <li>
-                    <a href="#">23 コメント</a>
+                    <%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %>
                   </li>
-                </ul>
+　　　　　　　　　</ul>
+                <!-- ここまで -->
               </div>
             </div>
           </div>
