@@ -57,6 +57,7 @@
             <div class="float-wrapper">
               <h2 class="comment-count"><%= @post_image.post_comments.count %>件コメント</h2>
             </div>
+            <!-- コメント一覧 -->
             <ol>
               <% @post_image.post_comments.each do |post_comment| %>
               <li class="comment">
@@ -80,6 +81,7 @@
               <% end %>
             </ol>
           </div>
+          <!-- コメント一覧 -->
           <hr>
           <!-- Add comment section -->
           <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
